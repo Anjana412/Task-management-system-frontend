@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import img1 from '../images/edited.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { userLogin } from '../api/api'
+import { toast } from 'react-toastify'
 
 
 const Login = () => {
@@ -26,7 +27,8 @@ const Login = () => {
         
 
         try{
-            await userLogin(formData)
+            await userLogin(formData);
+            toast.success('Welcome back!');
                 
             navigate('/dashboard')
         }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { createTask } from '../api/api'
 import Navbar from './Navbar'
 import { BsArrowLeft } from 'react-icons/bs'
+import {toast} from 'react-toastify'
 
 const CreateTask = () => {
   const [taskData,setTaskData] =  useState({
@@ -28,7 +29,7 @@ const CreateTask = () => {
     try{
       await createTask(taskData);
 
-      alert("Task created sucessfully!");
+      toast.success("Task created sucessfully!");
       
       navigate('/dashboard');
     }
@@ -40,7 +41,7 @@ const CreateTask = () => {
   return (
     <>
     <Navbar />
-    <div className='min-h-screen bg-gray-50 flex items-center justify-center'>
+    <div className='min-h-screen bg-gray-50 flex items-start pt-6 md:pt-20 justify-center'>
       <div className='w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 border border-gray-100'>
         <button className='text-2xl' onClick={()=>navigate('/dashboard')}><BsArrowLeft/></button>
         <h2 className='text-2xl font-bold text-gray-800 mb-6 text-center'>Create New Task</h2>

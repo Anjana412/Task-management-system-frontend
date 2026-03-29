@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userRegister } from '../api/api'
 import img1 from '../images/edited.png'
+import { toast } from 'react-toastify'
 
 
 const Register = () => {
@@ -34,15 +35,20 @@ const Register = () => {
         }
 
         try{
-            await userRegister({
+            const res = await userRegister({
                 name:formData.name,
                 email:formData.email,
                 password:formData.password
             })
 
 
-            alert("Registration Sucessful!")
-            navigate('/')
+
+            localStorage.setItem('token',res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+
+
+            toast.success("Account created! Welcome aboard!")
+            navigate('/dashboard')
         }
         catch(err){
             setError(err.message||"Registration Failed")

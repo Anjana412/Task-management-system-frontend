@@ -1,12 +1,20 @@
 import axios from 'axios'
 
-// const API_URL = "http://localhost:4000"
-const API_URL=import.meta.env.VITE_BACKEND_URL;
+
+const API_URL = "https://task-management-system-vnp0.onrender.com"
+
+
 
 export const userRegister = async(data)=>{
   try{
-    return await axios.post(`${API_URL}/user/register`,data);
+    const response= await axios.post(`${API_URL}/user/register`,data);
 
+    if( response.data && response.data.token){
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user',JSON.stringify(response.data.user))
+
+    }
+    return response;
   }
   catch(error){
     throw error.response?.data ||error.message;

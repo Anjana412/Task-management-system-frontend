@@ -4,9 +4,14 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import CreateTask from './pages/CreateTask'
 import EditTask from './pages/EditTask'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+
 function App() {
 
   return (
+    <>
     <BrowserRouter>
     <Routes>
       <Route path="/register" element={<Register/>} />
@@ -19,6 +24,11 @@ function App() {
 
     </Routes>
     </BrowserRouter>
+
+
+    <ToastContainer position='top-center' autoClose={300} theme='colored'/>
+    </>
+  
   )
 }
 
