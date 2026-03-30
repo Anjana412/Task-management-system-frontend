@@ -4,7 +4,7 @@ A full-stack Task Management application build using MERN Stack technologies. Th
 
 ## Live Demo :
 
-#### Frontend : https://task-management-system-frontend-ciqs-qtq6148xu.vercel.app/
+#### Frontend : https://task-management-system-frontend-blush.vercel.app/
 #### Backend : https://task-management-system-vnp0.onrender.com 
 
 

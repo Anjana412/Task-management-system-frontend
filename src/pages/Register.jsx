@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { userRegister } from '../api/api'
 import img1 from '../images/edited.png'
 import { toast } from 'react-toastify'
+import {FaClipboardList} from 'react-icons/fa6'
+
 
 
 const Register = () => {
@@ -60,7 +62,17 @@ const Register = () => {
    <div className='min-h-screen relative bg-white font-sans flex flex-col md:flex-row'>
         {/* leftside */}
          <div className='flex w-full md:w-1/2 md:h-auto bg-gradient-to-br from-[#7c3AED] to-[#A78BFA] justify-center items-center relative overflow-hidden'>
-            <img src={img1} alt='img for task' className='max-w-[150px] md:max-w-full max-h-full object-contain opacity-95 transition-transform duration-700 hover:scale-105'/>
+            
+            <div className='absolute top-5 left-5 md:top-8 md:left-8 flex items-center gap-3'>
+                <div className='w-10 h-10 bg-white rounded-xl flex  items-center justify-center shadow-md'>
+                <FaClipboardList className='text-purple-600 text-xl md:text-2xl'/>
+                </div>
+                <h1 className='text-2xl md:text-3xl font-bold text-white'>TaskFlow</h1>
+            </div> 
+            
+            
+            
+            <img src={img1} alt='img for task' className='max-w-[250px] md:max-w-full min-h-[300px] max-h-full object-contain opacity-95 transition-transform duration-700 hover:scale-105'/>
         </div>
 
             
